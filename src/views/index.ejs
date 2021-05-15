@@ -14,7 +14,7 @@
       <!-- <%= data %> -->
   </p>
 
-  <div id="myDiagramDiv" style="width:650px; height:650px; background-color: #DAE4E4;"></div>
+  <div id="myDiagramDiv" style="width:100vw; height:80vh; background-color: #DAE4E4;"></div>
 </body>
 
 <script>
@@ -33,26 +33,45 @@
         new go.Binding("text", "key"))
     );
 
-  let data = JSON.parse('<%-data%>');
-  let x,
-    y = 0
-  console.log("RECEIVED:", data);
+  myDiagram.linkTemplate =
+    $(go.Link,
+      $(go.Shape),                           // this is the link shape (the line)
+      $(go.Shape, { toArrow: "Standard" }),  // this is an arrowhead
+      $(go.TextBlock,                        // this is a Link label
+        new go.Binding("text", "text")),
+      $(go.TextBlock, "",
+        {
+          segmentIndex: 0, segmentOffset: new go.Point(NaN, NaN),
+          segmentOrientation: go.Link.OrientUpright
+        }),
+      $(go.TextBlock, "import from",
+        {
+          segmentIndex: -1, segmentOffset: new go.Point(NaN, NaN),
+          segmentOrientation: go.Link.OrientUpright
+        })
+    );
 
-  const nodeDataArray = data.map(module => {
-    return {
+
+  let { modules, dependencies } = JSON.parse('<%-data%>');
+  const coordinates = [
+    { x: -100, y: 120 },
+    { x: 171, y: -113 },
+    { x: 700, y: 120 },
+    { x: 300, y: 380 },
+    { x: 300, y: 120 }
+  ]
+
+  const nodeDataArray = modules.map((module, index) => {
+    let node = {
       key: module,
       color: 'lightblue',
-      loc: new go.Point(x + 100, y + 50),
+      loc: new go.Point(coordinates[index].x, coordinates[index].y),
     }
+
+    return node;
   })
-  console.log(nodeDataArray);
 
-  var linkDataArray = [
-    { from: data[0], to: data[1] },
-    { from: data[1], to: data[2] },
-    { from: data[2], to: data[0] }
-
-  ];
+  var linkDataArray = dependencies;
   myDiagram.model = new go.GraphLinksModel(nodeDataArray, linkDataArray);
 </script>
 

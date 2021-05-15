@@ -25,3 +25,7 @@ Open [http://localhost:5000](http://localhost:5000) to view it in the browser.
 
 The page will reload if you make edits.<br>
 You will also see any lint errors in the console.
+
+## Results
+
+On the page will be displayed an interactive Module View with Dependency Cardinality from the Zeegu-API project ![Generated diagram](./module_view.png)

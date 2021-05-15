@@ -4,7 +4,7 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "dev": "nodemon src/index.js",
+    "dev": "nodemon nodemon -e js,ejs,html -w . -w public -w views -w routes -w models src/index.js",
     "start": "node ."
   },
   "author": "Petya Buchkova",
@@ -12,6 +12,7 @@
   "dependencies": {
     "ejs": "^3.1.6",
     "express": "^4.17.1",
+    "find-in-files": "^0.5.0",
     "glob": "^7.1.7",
     "glob-promise": "^4.1.0"
   }
