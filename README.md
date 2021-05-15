@@ -28,4 +28,4 @@ You will also see any lint errors in the console.
 
 ## Results
 
-On the page will be displayed an interactive Module View with Dependency Cardinality from the Zeegu-API project ![Generated diagram](./module_view.png)
+On the page will be displayed an interactive Module View with Dependency Cardinality for the Zeegu-API project ![Generated diagram](./module_view.png)
