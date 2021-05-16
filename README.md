@@ -1,4 +1,4 @@
-# architecture-reconstruction
+# architecture-recovery
 
 The problem this tool is trying to solve, is that regardless of it’s many benefits, architectural documentation often becomes obsolete. With projects progress, more frequently the focus is on the code and technical progress, rather than maintaining, sometimes even creating architectural documentation.
 To gain the above mentioned benefits of having an architectural description, but also taking into account the real-life situations when software projects often lack the focus and the time for creating one, this report will outline the process of building a tool to dynamically generate one or more architectural views and to present them in a visual format. The target for the diagram is somebody that is not familiar with the system and needs to get a high-level understanding of it.
