@@ -32,7 +32,7 @@ const extractDependencies = async (files, modules) => {
     if (moduleName && modules.includes(moduleName)) {
       match.line.forEach(line => {
         modules.forEach(module => {
-          if (line.includes(module) && moduleName !== module)
+          if (line.includes(` ${module}`) && moduleName !== module)
             addDependency(dependenciesMap, moduleName, module)
         })
       })
