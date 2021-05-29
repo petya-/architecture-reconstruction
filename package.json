@@ -7,6 +7,9 @@
     "dev": "nodemon nodemon -e js,ejs,html -w . -w public -w views -w routes -w models src/index.js",
     "start": "node ."
   },
+  "engines": {
+    "node": "14.x"
+  },
   "author": "Petya Buchkova",
   "license": "ISC",
   "dependencies": {
