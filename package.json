@@ -10,10 +10,13 @@
   "author": "Petya Buchkova",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.19.0",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
     "find-in-files": "^0.5.0",
+    "git-clone": "^0.1.0",
     "glob": "^7.1.7",
-    "glob-promise": "^4.1.0"
+    "glob-promise": "^4.1.0",
+    "shelljs": "^0.8.4"
   }
 }

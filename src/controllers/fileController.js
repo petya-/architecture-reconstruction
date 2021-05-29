@@ -1,11 +1,11 @@
 const glob = require('glob-promise')
 const findInFiles = require('find-in-files')
 
-const getModuleDiagramData = async () => {
-  const files = await glob('./Zeeguu-API/**/*.py', {})
+const getModuleDiagramData = async projectName => {
+  const files = await glob(`./${projectName}/**/*.py`, {})
   files.sort() // sort files alphabetically
   const modules = extractModules(files)
-  const dependencies = await extractDependencies(files, modules)
+  const dependencies = await extractDependencies(modules, projectName)
   return { modules, dependencies }
 }
 
@@ -18,12 +18,12 @@ const extractModules = files => {
   return [...new Set(modules)]
 }
 
-const extractDependencies = async (files, modules) => {
+const extractDependencies = async (modules, projectName) => {
   let dependenciesMap = []
 
   const allDependencies = await findInFiles.find(
     'import',
-    './Zeeguu-API',
+    `./${projectName}`,
     '.py$'
   )
   for (var result in allDependencies) {
