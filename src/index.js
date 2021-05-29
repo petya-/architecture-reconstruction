@@ -17,7 +17,7 @@ app.set('view engine', 'ejs')
 
 global.appRoot = path.resolve(__dirname)
 
-app.listen(port, () => {
+app.listen(process.env.PORT || 5000, () => {
   console.log(`Server listening on http://localhost:${port}`)
 })
 
